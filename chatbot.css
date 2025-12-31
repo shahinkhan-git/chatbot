@@ -1,0 +1,124 @@
+/* ------------------------- */
+/* Chat Toggle Button */
+/* ------------------------- */
+#chatbot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+#chatbot-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ------------------------- */
+/* Chat Window */
+/* ------------------------- */
+#chatbot-window {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  max-height: 400px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 999;
+}
+
+.hidden {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* ------------------------- */
+/* Header */
+/* ------------------------- */
+#chatbot-header {
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* ------------------------- */
+/* Messages Area */
+/* ------------------------- */
+#chatbot-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+}
+
+.bot-message {
+  text-align: left;
+  margin: 5px 0;
+  padding: 5px 8px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.user-message {
+  text-align: right;
+  margin: 5px 0;
+  padding: 5px 8px;
+  background: #007BFF;
+  color: white;
+  border-radius: 8px;
+}
+
+/* ------------------------- */
+/* Buttons Container */
+/* ------------------------- */
+#chatbot-buttons button {
+  margin: 5px 2px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #007BFF;
+  color: white;
+  transition: background 0.2s;
+}
+
+#chatbot-buttons button:hover {
+  background: #0056b3;
+}
+
+/* ------------------------- */
+/* Typing Animation */
+/* ------------------------- */
+#chatbot-messages .bot-message.typing::after {
+  content: '...';
+  display: inline-block;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* ------------------------- */
+/* Mobile Responsiveness */
+/* ------------------------- */
+@media (max-width: 400px) {
+  #chatbot-window {
+    width: 90%;
+    right: 5%;
+    bottom: 80px;
+  }
+}
